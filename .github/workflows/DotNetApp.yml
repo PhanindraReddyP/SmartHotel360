@@ -34,7 +34,7 @@ jobs:
         mkdir package
         dotnet pack --no-build -c Release --output "${{ github.workspace }}/package"
         popd
-        ls $GITHUB_WORKSPACE/package
+        ls ${{ github.workspace }}/package
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
