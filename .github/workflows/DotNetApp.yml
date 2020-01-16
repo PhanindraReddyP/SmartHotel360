@@ -27,9 +27,9 @@ jobs:
         # If your web app project is not located in your repository's root
         # Please consider using pushd to change your path
         ls $GITHUB_WORKSPACE
-    #    pushd $GITHUB_WORKSPACE/Source
-    #    dotnet build ./SmartHotel360.Website.sln --configuration Release --output ./output
-    #    popd
+        pushd $GITHUB_WORKSPACE/Source
+        dotnet build ./SmartHotel360.Website.sln --configuration Release --output ./output
+        popd
 
     - name: workspace after build
       run: echo $GITHUB_WORKSPACE      
