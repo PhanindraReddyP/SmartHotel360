@@ -29,10 +29,21 @@ jobs:
         ls $GITHUB_WORKSPACE
         pushd $GITHUB_WORKSPACE/Source
         dotnet build ./SmartHotel360.Website.sln --configuration Release --output ./output
+        mkdir $GITHUB_WORKSPACE/package
+        dotnet pack --no-build -c Release --output "${{ github.workspace }}/package"
         popd
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+    # Artifact name
+        name: nuget
+    # Directory containing files to upload
+        path: $GITHUB_WORKSPACE/package
+    
     - name: workspace after build
       run: |
         echo $GITHUB_WORKSPACE 
-        ls $GITHUB_WORKSPACE/Source     
+        ls $GITHUB_WORKSPACE/Source
+        ls $GITHUB_WORKSPACE/package     
     
