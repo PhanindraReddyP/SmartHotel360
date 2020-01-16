@@ -15,8 +15,21 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project
-    - name: .NET Core CLI
-      uses: baruchiro/github-actions@0.0.1
+        
+    - name: Setup Dotnet 2.2.300
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '2.2.300'
+    
+    - name: 'Run dotnet build'
+      shell: bash
+      run: |
+        # If your web app project is not located in your repository's root
+        # Please consider using pushd to change your path
+        pushd .
+        dotnet build --configuration Release --output ./output
+        popd
+
     - name: workspace after build
       run: echo $GITHUB_WORKSPACE      
     
