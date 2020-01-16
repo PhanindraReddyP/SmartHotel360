@@ -42,7 +42,7 @@ jobs:
     # Artifact name
        name: nuget
     # Directory containing files to upload
-       path: ${{ github.workspace }}/package
+       path: ${{ github.workspace }}/Source/package
     
     - name: workspace after build
       run: |
