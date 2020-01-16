@@ -49,5 +49,5 @@ jobs:
         echo $GITHUB_WORKSPACE      
         ls $GITHUB_WORKSPACE
         ls $GITHUB_WORKSPACE/Source
-        ls $GITHUB_WORKSPACE/Source/package     
+        ls ${{ github.workspace }}/Source/package     
     
