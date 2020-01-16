@@ -26,7 +26,7 @@ jobs:
       run: |
         # If your web app project is not located in your repository's root
         # Please consider using pushd to change your path
-        pushd SmartHotel360/Source/
+        pushd $GITHUB_WORKSPACE/Source
         dotnet build ./Source/SmartHotel360.Website.sln --configuration Release --output ./output
         popd
 
