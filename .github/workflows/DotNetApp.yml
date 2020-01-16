@@ -36,17 +36,18 @@ jobs:
         popd
         ls ${{ github.workspace }}/Source
 
-  #  - name: Upload artifact
-  #    uses: actions/upload-artifact@v1.0.0
-  #    with:
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
     # Artifact name
-  #      name: nuget
+       name: nuget
     # Directory containing files to upload
-  #      path: $GITHUB_WORKSPACE/package
+       path: ${{ github.workspace }}/package
     
     - name: workspace after build
       run: |
-        echo $GITHUB_WORKSPACE 
+        echo $GITHUB_WORKSPACE      
+        ls $GITHUB_WORKSPACE
         ls $GITHUB_WORKSPACE/Source
-        ls $GITHUB_WORKSPACE     
+        ls $GITHUB_WORKSPACE/Source/package     
     
