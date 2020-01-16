@@ -27,13 +27,14 @@ jobs:
         # If your web app project is not located in your repository's root
         # Please consider using pushd to change your path
         echo ${{ github.workspace }}
-        ls ${{ github.workspace }}        
+        ls ${{ github.workspace }} 
+        ls ${{ github.workspace }}/Source       
         pushd $GITHUB_WORKSPACE/Source
         dotnet build ./SmartHotel360.Website.sln --configuration Release --output ./output
         mkdir package
         dotnet pack --no-build -c Release --output "${{ github.workspace }}/package"
         popd
-        ls ${{ github.workspace }}
+        ls ${{ github.workspace }}/Source
 
   #  - name: Upload artifact
   #    uses: actions/upload-artifact@v1.0.0
