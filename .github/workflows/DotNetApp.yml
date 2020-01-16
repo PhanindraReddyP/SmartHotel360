@@ -26,28 +26,26 @@ jobs:
       run: |
         # If your web app project is not located in your repository's root
         # Please consider using pushd to change your path
-        ls $GITHUB_WORKSPACE
-         ls ${{ github.workspace }}
         echo ${{ github.workspace }}
-        
+        ls ${{ github.workspace }}        
         pushd $GITHUB_WORKSPACE/Source
         dotnet build ./SmartHotel360.Website.sln --configuration Release --output ./output
         mkdir package
         dotnet pack --no-build -c Release --output "${{ github.workspace }}/package"
         popd
-        ls ${{ github.workspace }}/Source/package
+        ls ${{ github.workspace }}
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
+  #  - name: Upload artifact
+  #    uses: actions/upload-artifact@v1.0.0
+  #    with:
     # Artifact name
-        name: nuget
+  #      name: nuget
     # Directory containing files to upload
-        path: $GITHUB_WORKSPACE/package
+  #      path: $GITHUB_WORKSPACE/package
     
     - name: workspace after build
       run: |
         echo $GITHUB_WORKSPACE 
         ls $GITHUB_WORKSPACE/Source
-        ls $GITHUB_WORKSPACE/package     
+        ls $GITHUB_WORKSPACE     
     
